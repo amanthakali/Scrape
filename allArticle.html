@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- bootstrap cdn -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+
+    <!-- Custom styles for this template -->
+    <title>Scarper</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Hacker News Scrapper</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/all">All Articles</a></li>
+        </ul>
+        <a class="btn btn-primary navbar-btn" id="scrapeBtn" href="/scrape"
+          >Scrape New Articles!</a
+        >
+      </div>
+    </nav>
+    <div id="articles"></div>
+    <table id="results">
+      <thead>
+        <tr>
+          <th id="title">Title</th>
+          <th id="link">Link</th>
+          <th id="save">Save</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Results from DB here -->
+      </tbody>
+    </table>
+
+    <script>
+      $.getJSON("/all", function(data) {
+        // For each one
+        console.log(data);
+        // for (var i = 0; i < data.length; i++) {
+        //   // Display the apropos information on the page
+        //   $("#articles").append(
+        //     '<div class="card col-3"><div class="card-body"><h5 class="card-title">' +
+        //       data[i].title +
+        //       '</p><a href="' +
+        //       data[i].link +
+        //       '" class="btn btn-primary">Go to Article</a></div>'
+        //   );
+        // }
+      });
+    </script>
+  </body>
+</html>
